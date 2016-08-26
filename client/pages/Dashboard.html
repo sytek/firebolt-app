@@ -1,3 +1,8 @@
 <template name="Dashboard">
-    <h1 class="page-title">Dashboard</h1>
+    {{ #if isInRole 'admin'}}
+        <h3 class="page-title">Dashboard</h3>
+        <iframe src="http://localhost:5601/app/kibana#/dashboard/FireboltDash1?embed=true&_a=(filters:!(),options:(darkTheme:!f),panels:!((col:1,id:'firebolt:-unique-hashes-count',panelIndex:1,row:1,size_x:1,size_y:4,type:visualization),(col:1,id:'firebolt:-unique-systems',panelIndex:2,row:5,size_x:1,size_y:2,type:visualization),(col:2,id:'firebolt:-top-15-infrequent-hashes',panelIndex:3,row:5,size_x:7,size_y:2,type:visualization),(col:5,id:'firebolt:-top-10-systems-with-malware-count',panelIndex:4,row:1,size_x:4,size_y:4,type:visualization),(col:9,id:'firebolt:-top-10-system-with-APT-count',panelIndex:5,row:1,size_x:4,size_y:4,type:visualization),(col:2,id:'firebolt:-temp-or-appdata',panelIndex:6,row:7,size_x:11,size_y:3,type:visualization),(col:2,id:'firebolt:-categories-and-hashes',panelIndex:7,row:1,size_x:3,size_y:4,type:visualization),(col:9,id:'firebolt:-15-most-prevalent-hashes',panelIndex:8,row:5,size_x:4,size_y:2,type:visualization)),query:(query_string:(analyze_wildcard:!t,query:'*')),title:FireboltDash1,uiState:(P-5:(vis:(legendOpen:!f)),P-7:(vis:(legendOpen:!f))))&_g=(refreshInterval:(display:Off,pause:!f,section:0,value:0),time:(from:now-5y,mode:quick,to:now))" height="900" width=100% style="border:none;"></iframe>
+    {{else}}
+        <h1> You are not an admin!</h1>
+    {{ /if}}
 </template>

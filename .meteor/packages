@@ -24,3 +24,13 @@ fourseven:scss
 fortawesome:fontawesome
 standard-minifier-css
 standard-minifier-js
+accounts-base
+accounts-password
+raix:handlebar-helpers
+useraccounts:core
+useraccounts:unstyled
+
+aldeed:template-extension
+alanning:roles
+
+momentjs:moment

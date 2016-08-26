@@ -1,0 +1,11 @@
+<template name="Records">
+    {{ #if isInRole 'admin'}}
+    <div class="h_iframe">
+        <iframe src="http://localhost:5601/app/kibana#/discover?_g=(refreshInterval:(display:Off,pause:!f,section:0,value:0),time:(from:now-5y,mode:quick,to:now))&_a=(columns:!(_source),index:firebolt,interval:auto,query:(query_string:(analyze_wildcard:!t,query:'*')),sort:!(gen_date,desc))" frameborder="0" allowfullscreen></iframe>
+         </div>
+
+    {{else}}
+        <h1> You are not an admin!</h1>
+    {{ /if}}
+   
+</template>

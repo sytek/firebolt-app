@@ -1,8 +1,13 @@
 <template name="AppNav">
     <div class="app-nav">
         <ul>
-            <li><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-            <li><a href="/"><i class="fa fa-users"></i> <span>Users Management</span></a></li>
+            <li><a href="/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li><a href="/records"><i class="fa fa-search"></i> <span>Search Records</span></a></li>
+            <li><a href="/upload"><i class="fa fa-cloud-upload"></i> <span>Upload</span></a></li>
+            {{ #if isInRole 'admin'}}
+                <li><a href="/"><i class="fa fa-user"></i> <span>Admin Console</span></a></li>
+                <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Users Management</span></a></li>
+            {{/if}}
         </ul>
     </div>
 </template>

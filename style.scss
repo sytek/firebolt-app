@@ -1,5 +1,14 @@
 @import 'sass/_normalize.scss';
 @import 'sass/_base.scss';
+@font-face {
+    font-family: 'HarryP';
+    src: url('/fonts/harry.ttf') format('truetype') ;
+   
+}
+@font-face {
+    font-family: 'lumos';
+    src: url('/fonts/lumos.ttf') format('truetype') ;
+}
 
 html {
     box-sizing: border-box;
@@ -11,22 +20,25 @@ html {
 
 body {
     color: $text;
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
 }
 
 h1 {
     font-weight: 100;
-    font-size: 3.998em;
+    font-size: 6.5em;
+    font-family: 'HarryP','Orbitron', sans-serif;
 }
 
 h2 {
     font-weight: 100;
     font-size: 3.157em;
+    font-family: 'lumos', sans-serif;
 }
 
 h3 {
     font-size: 1.777em;
     font-weight: 100;
+    font-family: 'lumos', Orbitron, sans-serif;
 }
 
 p {
@@ -48,7 +60,8 @@ input[type="password"] {
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
-    font-weight: 800;
+    font-family: 'lumos', sans-serif;
+    font-weight: 100;
     padding: 10px 51px 7px;
     color: #FFF;
     letter-spacing: 1px;
@@ -63,15 +76,19 @@ input[type="password"] {
 .btn-text {
     @extend .btn;
     background: transparent;
+    font-family: 'lumos', sans-serif;
 }
 
 .btn-primary {
     @extend .btn;
-    background: $accent;
-    border: solid 2px $accent;
+    background: #FFF;
+    color: #2C4961;
+    border: solid 2px #FFF;
+    display: inline-block;
+    padding: 8px 35px 8px ;
     &:hover {
-        background: $accent - 30;
-        border-color: $accent - 30;
+        background: #FFF;
+        border-color: #fff;
     }
 }
 
@@ -94,6 +111,12 @@ input[type="password"] {
         line-height: 0;
         margin: 0;
     }
+    .site-title,
+    img
+    {
+        width: 35%;
+        height: auto;
+    }
 }
 
 .main-nav {
@@ -114,7 +137,6 @@ input[type="password"] {
 .login-toggle {
     cursor: pointer;
 }
-
 
 // Homepage
 .billboard {
@@ -146,7 +168,7 @@ input[type="password"] {
     transition: all 0.3s ease;
     border-right: solid 1px $dgrey;
     &:hover {
-        width: 300px;
+        width: 250px;
         a > span {
             opacity: 1;
             transform: translate3d(0, 0,0);
@@ -214,4 +236,39 @@ table {
 .user_id {
     color: $blue;
     cursor: pointer;
+}
+
+.user-edit {
+    position: absolute;
+    left: -300px;
+    top: 0;
+    background: #FFF;
+    z-index: 10;
+    padding: 20px;
+    width: 280px;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.65, 0.265, 1.20);
+    @include card(2);
+    .close-edit-mode {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 20px;
+        font-size: 1.2em;
+        font-weight: 900;
+        text-transform: uppercase;
+        cursor: pointer;  
+    }
+}
+
+.edit-mode .user-edit {
+    opacity: 1; 
+}
+
+.h_iframe iframe {
+    position:absolute;
+    top:15px;
+    left:85px;
+    width:90%;
+    height:93%;
 }
