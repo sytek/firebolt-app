@@ -29,8 +29,13 @@ accounts-password
 raix:handlebar-helpers
 useraccounts:core
 useraccounts:unstyled
-
+aldeed:autoform
+aldeed:collection2
 aldeed:template-extension
 alanning:roles
 
 momentjs:moment
+kevohagan:sweetalert
+jalik:ufs
+jalik:ufs-local
+jalik:ufs-gridfs

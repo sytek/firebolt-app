@@ -1,10 +1,11 @@
-if(Meteor.isClient){    
+if(Meteor.isClient){
     Accounts.onLogin(function(){
-        FlowRouter.go('dashboard');  
+        FlowRouter.go('hashes');
+        //FlowRouter.go('dashboard');
     });
 
     Accounts.onLogout(function(){
-        FlowRouter.go('home');  
+        FlowRouter.go('home');
     });
 }
 
@@ -47,6 +48,7 @@ FlowRouter.route('/upload', {
         BlazeLayout.render("AppLayout", {main: "Upload"});
     }
 });
+
 //Admin Routes
 var adminRoutes = FlowRouter.group({
         prefix: '/admin',
@@ -57,5 +59,42 @@ adminRoutes.route('/users', {
     name: 'users',
     action() {
         BlazeLayout.render("AppLayout", {main: "Users"});
+    }
+});
+
+adminRoutes.route('/panel', {
+    name: 'panel',
+    action(){
+        BlazeLayout.render("AppLayout", {main: "Panel"});
+    }
+});
+adminRoutes.route('/faqs', {
+    name: 'faqs',
+    action(){
+        BlazeLayout.render("AppLayout", {main: "faqs"});
+    }
+});
+adminRoutes.route('/nuke', {
+    name: 'nuke',
+    action(){
+        BlazeLayout.render("AppLayout", {main: "nuke"});
+    }
+});
+adminRoutes.route('/blacklist', {
+    name: 'blacklist',
+    action(){
+        BlazeLayout.render("AppLayout", {main: "blist"});
+    }
+});
+adminRoutes.route('/whitelist', {
+    name: 'whitelist',
+    action(){
+        BlazeLayout.render("AppLayout", {main: "wlist"});
+    }
+});
+adminRoutes.route('/hashes', {
+    name: 'hashes',
+    action(){
+        BlazeLayout.render("AppLayout", {main: "hashes"});
     }
 });

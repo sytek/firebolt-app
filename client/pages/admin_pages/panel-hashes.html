@@ -1,0 +1,31 @@
+<template name="hashes">
+  {{  > pTabs  }}
+  <h3> Manage Hashes</h3>
+  <form>
+    <div class="container">
+      <div class="styled-select blue semi-square">
+        <select name = 'hashAction'>
+          <option>
+              --- options --
+          </option>
+            <option value="delete">
+                Delete Hash
+            </option>
+            <option value="whitelist">
+                Add to Whitelist
+            </option>
+            <option value="blacklist">
+                Add to Blacklist
+            </option>
+        </select>
+      </div>
+
+      <div id="inputbox">
+        <input placeholder="Enter SHA1 Hash..." size="60" name='hashinput'>
+        <button class="btn btn-del" name='subAction'>Ewecute</button>
+      </div>
+      <div id="clear">
+      </div>
+    </div>
+  </form>
+</template>

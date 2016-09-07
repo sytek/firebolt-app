@@ -1,4 +1,107 @@
+
 <template name="Upload">
-    <h3 class="page-title"> Upload a Nev Record </h3>
-  
+    <div class="jumbotron">
+        <h3>Upload Nev Endpoint Record</h3>
+            {{> layout}}
+        </div>
+</template>
+
+<template name="header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="navbar-form navbar-left">
+                    {{> uploadForm}}
+                    <hr>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+</template>
+
+<template name="layout">
+    {{> header}}
+    <div id="page" class="container-fluid">
+        <section class="row">
+            <div class="col-xs-12">
+                {{> fileTable}}
+            </div>
+        </section>
+    </div>
+</template>
+
+<template name="uploadForm">
+
+        <button class="btn btn-up" name="upload" type="button">
+            <i class="fa fa-plus-square"></i> Upload
+        </button>
+
+</template>
+
+<template name="fileTable">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th width="20%">Name</th>
+            <th width="13%">Type</th>
+            <th width="5%">Extension</th>
+            <th width="7%" style="text-align: right">Size</th>
+            <th width="20%" style="text-align: right">Date</th>
+            <th style="text-align: right">Incantations</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each files}}
+            {{> fileTableRow}}
+        {{else}}
+            <tr>
+                <td colspan="8">
+                    <span class="empty">No File</span>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>
+
+<template name="fileTableRow">
+    <tr>
+
+        <td><a href="{{url}}?token={{token}}" target="_blank">{{name}}</a></td>
+        <td>{{type}}</td>
+        <td>{{extension}}</td>
+        <td style="text-align: right; white-space: nowrap">{{formatSize size}}</td>
+        <td style="text-align: right">{{uploadedAtx}}</td>
+        <td style="text-align: right">
+            <div class="btn-group" role="group">
+                {{#if canAbort}}
+                    {{#unless complete}}
+
+                        <button class="btn btn-del" name="abort" type="button" title="abort">
+                            <span><i class="fa fa-close"></i>Abort</span>
+                        </button>
+                    {{/unless}}
+                {{/if}}
+
+                    <button class="btn btn-del" name="delete" type="button">
+                        <i class="fa fa-trash-o"></i> remoxe
+                    </button>
+
+                    {{  #if notScanned  }}
+                        <button class="btn btn-run" name="run" type="button">
+                            <i class="fa fa-play-circle"></i> scan
+                        </button>
+                    {{ else }}
+                        <button class="btn btn-run" name="run" type="button" disabled>
+                            <i class="fa fa-play-circle"></i> scan
+                        </button>
+                    {{ /if }}
+
+            </div>
+        </td>
+    </tr>
+
 </template>
