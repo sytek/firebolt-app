@@ -32,6 +32,46 @@ Meteor.methods({
         future.return(stdout.toString());
       });
       return future.wait();
-   }
+   },
+
+   runElastic: function(hashval, action){
+   // initialize without query options
+          var config = {
+              host: "http://localhost:9200"
+          };
+          var es = new ElasticRest(config);
+
+          // and pass options as parameter at the time of querying
+          var options = {
+              index: 'firebolt',
+              type: 'endpoint',
+              query: {
+                  match: {"hash": hashval }
+              }
+          };
+
+          //SEND QUERY COMMAND
+          res = es.doSearch(options);
+
+          if (action == 'delete' ) {
+             for (var i = 0; i < res.hits.hits.length; i++) {
+               idval = res.hits.hits[i]._id;
+
+                  var deloptions = {
+                          index: 'firebolt',
+                          type: 'endpoint',
+                          id: idval
+                       };
+                       //SEND QUERY COMMAND
+                       dres = es.doDelete(deloptions);
+                       console.log(dres);
+             console.log('will be deleting');
+          }
+          } else {
+             console.log("not delete right now");
+          }
+          console.log(res.hits.hits[0]._id);
+          return res;
+       }
 
 });
