@@ -1,5 +1,5 @@
 <template name="hashes">
-  
+
   {{  > pTabs  }}
   <h3> Manage Hashes</h3>
   <form>
@@ -13,10 +13,10 @@
                 Delete Hash
             </option>
             <option value="whitelist">
-                Add to Whitelist
+                x-Add to Whitelist
             </option>
             <option value="blacklist">
-                Add to Blacklist
+                x-Add to Blacklist
             </option>
         </select>
       </div>
@@ -27,6 +27,27 @@
       </div>
       <div id="clear">
       </div>
+    </div>
+    <hr  />
+    <div class="container2">
+        <h4>Convert Category</h4>
+        <div class="styled-select blue semi-square">
+            <select name = 'convertFrom'>
+                <option value="malware">
+                    Malware
+                </option>
+                <option value="dementor">
+                    Dementor
+                </option>
+              
+            </select>
+          </div>
+          <div id="inputbox">
+            <input placeholder="Enter SHA1 Hash..." size="60" name='hashinput'>
+              <button class="btn btn-del" name='subAction'>Conxert</button>
+          </div>
+        <div id="clear">
+        </div>
     </div>
   </form>
 </template>
