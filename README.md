@@ -1,7 +1,7 @@
 # firebolt-app
-Front end application to find malware on a system
+Front end application to find previously undetectable malware on a system.
 
-Written in Meteorjs, blaze, and uses nodejs
+Technologies: Meteorjs, Nodejs, Blaze, HTML, CSS3, JavaScript, JQuery, ElasticSeach, MongoDB, Kibana
 
 -----------
 
